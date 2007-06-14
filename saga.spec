@@ -14,7 +14,7 @@ BuildRoot:	%{_tmppath}/%{name}-root
 Group:		Development/Other
 Source:		http://saga.cct.lsu.edu/downloads/libsaga++-src-%{version}.tar.gz
 BuildRequires:	libboost-devel, libsqlite3-devel, postgresql-devel
-BuildRequires:	libxmlrpc-c-devel
+BuildRequires:	xmlrpc-c-devel
 BuildRequires:	libsoci-sqlite3-devel, libsoci-postgresql-devel, libsoci-mysql-devel, libsoci-firebird-devel
 Requires:	%{mklibname boost 1}
 Patch0:		saga_show_compile_cmd.patch
