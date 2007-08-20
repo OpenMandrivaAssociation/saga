@@ -1,17 +1,18 @@
-
 %define name saga
-%define libname %{mklibname %name}
+%define major 0
+%define libname %{mklibname} %name %major
+%define develname %{mklibname} %name
 %define version 0.6
-%define release %mkrel 1
+%define release %mkrel 2
 
 Name:		%name
 Version:	%version
 Release:	%release
-Summary:	The SAGA C++ Framework is an implementation of the SAGA (Simple API for Grid Computing) API specification.
+Summary:	The SAGA C++ Framework (Simple API for Grid Computing)
 URL:		http://saga.cct.lsu.edu/
-License:	BSD style
+License:	BSD like
 BuildRoot:	%{_tmppath}/%{name}-root
-Group:		Development/Other
+Group:		System/Cluster
 Source:		http://saga.cct.lsu.edu/downloads/libsaga++-src-%{version}.tar.gz
 BuildRequires:	libboost-devel, libsqlite3-devel, postgresql-devel
 BuildRequires:	xmlrpc-c-devel
@@ -33,14 +34,15 @@ reduce the implementation complexity of an application but also makes
 it portable between various Grid ecosystems.
 
 %package -n %{libname}
-Summary:	The SAGA C++ Framework is an implementation of the SAGA (Simple API for Grid Computing) API specification.
-Group:		Development/Other
+Summary:	The SAGA C++ Framework (Simple API for Grid Computing)
+Group:		System/Cluster
 Provides:	libsaga = %{version}-%{release}
 
-%package -n %{libname}-devel
-Summary:	The SAGA C++ Framework is an implementation of the SAGA (Simple API for Grid Computing) API specification.
-Group:		Development/Other
+%package -n %{develname}
+Summary:	The SAGA C++ Framework (Simple API for Grid Computing)
+Group:		System/Cluster
 Provides:	saga-devel = %{version}-%{release}
+Provides:	libsaga-devel = %{version}-%{release}
 Requires:	%{libname} = %{version}-%{release}
 
 %description -n %{libname}
@@ -55,7 +57,7 @@ involved with any specific Grid middleware. This does not only greatly
 reduce the implementation complexity of an application but also makes
 it portable between various Grid ecosystems.
 
-%description -n %{libname}-devel
+%description -n %{develname}
 The SAGA C++ Framework is the first implementation of the SAGA (Simple
 API for Grid Computing) API specification. The SAGA specification has
 been defined by the SAGA Research Group at OGF as a high-level API that
@@ -90,10 +92,10 @@ make SAGA_LOCATION=$RPM_BUILD_ROOT%{_prefix} install
 %files -n %{libname}
 %defattr(-,root,root)
 %doc CHANGES INSTALL LICENSE README
-%{_libdir}
+%{_libdir}/libsaga*
 %{_datadir}/%{name}/*.ini
 
-%files -n %{libname}-devel
+%files -n %{develname}
 %defattr(-,root,root)
 %doc examples
 %{_libdir}
