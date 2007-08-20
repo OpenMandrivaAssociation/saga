@@ -89,6 +89,9 @@ make SAGA_LOCATION=$RPM_BUILD_ROOT%{_prefix} install
 %clean
 %{__rm} -Rf %{buildroot}
 
+%post -n %{libname} -p /sbin/ldconfig
+%postun -n %{libname} -p /sbin/ldconfig
+
 %files -n %{libname}
 %defattr(-,root,root)
 %doc CHANGES INSTALL LICENSE README
