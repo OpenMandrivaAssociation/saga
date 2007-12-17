@@ -11,7 +11,6 @@ Release:	%release
 Summary:	The SAGA C++ Framework (Simple API for Grid Computing)
 URL:		http://saga.cct.lsu.edu/
 License:	BSD like
-BuildRoot:	%{_tmppath}/%{name}-root
 Group:		System/Cluster
 Source:		http://saga.cct.lsu.edu/downloads/saga-c++-%{version}-src.tar.gz
 BuildRequires:	libboost-devel, libsqlite3-devel, postgresql-devel
