@@ -92,8 +92,12 @@ make SAGA_LOCATION=$RPM_BUILD_ROOT%{_prefix} install
 %clean
 %{__rm} -Rf %{buildroot}
 
+%if %mdkversion < 200900
 %post -n %{libname} -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %{libname} -p /sbin/ldconfig
+%endif
 
 %files -n %{libname}
 %defattr(-,root,root)
