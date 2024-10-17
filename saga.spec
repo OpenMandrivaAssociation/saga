@@ -9,7 +9,7 @@ Name:		%name
 Version:	%version
 Release:	%release
 Summary:	The SAGA C++ Framework (Simple API for Grid Computing)
-URL:		http://saga.cct.lsu.edu/
+URL:		https://saga.cct.lsu.edu/
 License:	BSD like
 BuildRoot:	%{_tmppath}/%{name}-root
 Group:		System/Cluster
