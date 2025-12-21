@@ -14,6 +14,11 @@ License:	BSD like
 BuildRoot:	%{_tmppath}/%{name}-root
 Group:		System/Cluster
 Source:		http://saga.cct.lsu.edu/downloads/saga-c++-%{version}-src.tar.gz
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	libboost-devel, libsqlite3-devel, postgresql-devel
 BuildRequires:	xmlrpc-c-devel
 BuildRequires:	libsoci-sqlite3-devel, libsoci-postgresql-devel, libsoci-mysql-devel, libsoci-firebird-devel
